@@ -15,7 +15,10 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-client.once('ready', () => console.log(`機器人 ${client.user.tag} 正在運行中!`));
+client.once('ready', () => {
+    client.user.setActivity('Sword Art Online');
+    console.log(`機器人 ${client.user.tag} 正在運行中!`);
+});
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isCommand()) return;
