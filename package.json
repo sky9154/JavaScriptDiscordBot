@@ -18,6 +18,7 @@
     "discord-api-types": "^0.33.3",
     "discord.js": "^13.8.0",
     "is-odd": "^3.0.1",
+    "random-cat-img": "^1.0.3",
     "xhr2": "^0.2.1"
   }
 }
