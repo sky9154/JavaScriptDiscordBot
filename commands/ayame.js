@@ -18,18 +18,14 @@ module.exports = {
             let intMin = Math.floor(intSec / 60);
             let intHour = Math.floor(intMin / 60);
             let intDay = Math.floor(intHour / 24);
-
             intSec -= (intMin * 60)
             intMin -= (intHour * 60);
             intHour -= (intDay * 24);
-
             const strSec = intSec.toString().padStart(2, '0');
             const strMin = intMin.toString().padStart(2, '0');
             const strHour = intHour.toString().padStart(2, '0');
-
             return `${intDay} 天 ${strHour} 時 ${strMin} 分 ${strSec} 秒`;
         }
-
         const dataUrl='https://script.google.com/macros/s/AKfycbydoxbJd6RJhJIe6tg8Q6IVKNHObuB8iSLyYbyoCBEQmhfP3tAxlyMtm-ozF8ptTJCd/exec';
         axios.get(dataUrl)
             .then((res) => {
@@ -41,7 +37,6 @@ module.exports = {
                             .setLabel('𝗟𝗜𝗩𝗘 𝗟𝗜𝗡𝗞')
                             .setEmoji('<a:blobreach:983798045760159847>'),
                     );
-
                 switch (res.data.live) {
                     case 'none':
                         const startDate = dayjs(res.data.pubt);
@@ -80,6 +75,7 @@ module.exports = {
             })
             .catch((error) => {
                 console.log(error);
-            });
+            }
+        );
     }
 };

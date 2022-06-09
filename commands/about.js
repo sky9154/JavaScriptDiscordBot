@@ -1,12 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
-/**
- * 𝗔　𝗕　𝗖　𝗗　𝗘　𝗙　𝗚　𝗛　𝗜　𝗝
- * 𝗞　𝗟　𝗠　𝗡　𝗢　𝗣　𝗤　𝗥　𝗦　𝗧
- * 𝗨　𝗩　𝗪　𝗫　𝗬　𝗭
- */
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('about')
@@ -32,7 +26,6 @@ module.exports = {
             .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983795490443366439/kirito.png')
             .setColor('0xc3e5ed')
             .setFooter({ text: 'Copyright © 2022 oF' });
-
         return interaction.reply({ embeds: [aboutEmbed], components: [linkButton] });
     }
 };
