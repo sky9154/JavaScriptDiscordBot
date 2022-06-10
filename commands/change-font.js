@@ -28,6 +28,7 @@ module.exports = {
         const original = interaction.options.getString('word');
         const regex = original.replace(/[^a-zA-Z0-9 ~!@#$%^&*()_+-]/g, '-');
         let result = regex;
+
         originalArray.forEach((item, index) => result = result.replace(item, newArray[index]));
 
         const changeFontEmbed = new MessageEmbed()
