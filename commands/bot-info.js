@@ -1,9 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+const { MessageActionRow, MessageButton, MessageEmbed, version } = require('discord.js');
+const process = require('node:process');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('about')
+        .setName('bot-info')
         .setDescription('關於機器人'),
     async execute(interaction) {
         const linkButton = new MessageActionRow()
@@ -24,6 +25,23 @@ module.exports = {
             .setAuthor({ name: 'oF', iconURL: 'https://cdn.discordapp.com/attachments/900320455477579836/983774623185387583/image.png', url: 'https://github.com/sky9154' })
             .setTitle('Discord Bot')
             .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983795490443366439/kirito.png')
+            .addFields({
+                    name: 'Bot Name',
+                    value: `\`桐谷和人#6388\``
+                }, {
+                    name: 'DiscordJs Version',
+                    value: `\`v${version}\``,
+                    inline: true
+                }, {
+                    name: 'NodeJs Version',
+                    value: `\`${process.version.replace('^', 'v')}\``,
+                    inline: true
+                }, {
+                    name: 'IDE Version',
+                    value: `\`WebStorm 2022.1.2\``,
+                    inline: true
+                }
+            )
             .setColor('0xc3e5ed')
             .setFooter({ text: 'Copyright © 2022 oF' });
         return interaction.reply({ embeds: [aboutEmbed], components: [linkButton] });
