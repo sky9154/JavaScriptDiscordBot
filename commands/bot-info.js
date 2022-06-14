@@ -19,8 +19,9 @@ module.exports = {
                     .setURL('https://discord.com/api/oauth2/authorize?client_id=787345494405546014&permissions=8&scope=bot%20applications.commands')
                     .setStyle('LINK')
                     .setLabel('𝗜𝗡𝗩𝗜𝗧𝗘 𝗠𝗘')
-                    .setEmoji('<a:blobreach:983793572002295818>'),
+                    .setEmoji('<a:blobreach:984878616338890812>'),
             );
+
         const aboutEmbed = new MessageEmbed()
             .setAuthor({ name: 'oF', iconURL: 'https://cdn.discordapp.com/attachments/900320455477579836/983774623185387583/image.png', url: 'https://github.com/sky9154' })
             .setTitle('Discord Bot')
