@@ -37,6 +37,6 @@ module.exports = {
             .setColor('0x5e9bbc')
             .setFooter({ text: 'Copyright © 2022 oF' });
 
-        return interaction.reply({ embeds: [changeFontEmbed] });
+        await interaction.reply({ embeds: [changeFontEmbed] });
     }
 };

@@ -13,6 +13,6 @@ module.exports = {
 			interaction.reply({ content: '刪除訊息時發生錯誤!', ephemeral: true });
 		});
 
-		return interaction.reply({ content: `已刪除 \`${amount}\` 筆訊息`, ephemeral: true });
+		await interaction.reply({ content: `已刪除 \`${amount}\` 筆訊息`, ephemeral: true });
 	}
 };
