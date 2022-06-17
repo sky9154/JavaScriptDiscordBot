@@ -43,7 +43,7 @@ module.exports = {
                     inline: true
                 }
             )
-            .setColor('0xc3e5ed')
+            .setColor('#c3e5ed')
             .setFooter({ text: 'Copyright © 2022 oF' });
         await interaction.reply({ embeds: [aboutEmbed], components: [linkButton] });
     }

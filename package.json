@@ -1,6 +1,6 @@
 {
   "name": "discord-bot",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,6 @@
     "discord-api-types": "^0.33.3",
     "discord.js": "^13.8.0",
     "mongoose": "^6.3.6",
-    "mqtt": "^4.3.7",
     "random-cat-img": "^1.0.3",
     "shentai": "^2.0.7",
     "xhr2": "^0.2.1"

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const {MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,7 +34,7 @@ module.exports = {
         const changeFontEmbed = new MessageEmbed()
             .setTitle('英文字體轉換器')
             .setDescription(`原始樣式：${original}\n去除不明文字：${regex}\n轉換結果：${result}`)
-            .setColor('0x5e9bbc')
+            .setColor('#5e9bbc')
             .setFooter({ text: 'Copyright © 2022 oF' });
 
         await interaction.reply({ embeds: [changeFontEmbed] });

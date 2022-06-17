@@ -42,7 +42,7 @@ module.exports = {
                     const noneEmbed = new MessageEmbed()
                         .setTitle('百鬼今天開台了嗎？')
                         .setDescription(`距離百鬼上次開台\n已經過了 ${setDate(startDate)}`)
-                        .setColor('0xf0c6e5')
+                        .setColor('#f0c6e5')
                         .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983666002493591562/nakiri.jpg')
                         .setFooter({
                             text: 'Powered by nakiri.canaria.cc',
@@ -54,7 +54,7 @@ module.exports = {
                     const upcomingEmbed = new MessageEmbed()
                         .setTitle('百鬼今天開台了嗎？')
                         .setDescription(`百鬼就快開台了，還不快去待機！`)
-                        .setColor('0xf0c6e5')
+                        .setColor('#f0c6e5')
                         .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983666002493591562/nakiri.jpg')
                         .setFooter({
                             text: 'Powered by nakiri.canaria.cc',
@@ -66,7 +66,7 @@ module.exports = {
                     const liveEmbed = new MessageEmbed()
                         .setTitle('百鬼今天開台了嗎？')
                         .setDescription(`百鬼正在開台，還不快去看！`)
-                        .setColor('0xf0c6e5')
+                        .setColor('#f0c6e5')
                         .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983666002493591562/nakiri.jpg')
                         .setFooter({
                             text: 'Powered by nakiri.canaria.cc',
@@ -78,7 +78,7 @@ module.exports = {
                     const errorEmbed = new MessageEmbed()
                         .setTitle('百鬼今天開台了嗎？')
                         .setDescription('今天機器人也要摸余啦!')
-                        .setColor('0xf0c6e5')
+                        .setColor('#f0c6e5')
                         .setThumbnail('https://cdn.discordapp.com/attachments/900320455477579836/983666002493591562/nakiri.jpg')
                         .setFooter({
                             text: 'Powered by nakiri.canaria.cc',
