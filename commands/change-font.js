@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('change-font')
         .setDescription('英文字體轉換器')
-        .addStringOption((option) => option.setName('word').setDescription('英文句子')),
+        .addStringOption((option) => option.setName('word').setDescription('英文句子').setRequired(true)),
     async execute(interaction) {
         const originalArray = [
             /A/g ,/B/g ,/C/g ,/D/g ,/E/g ,/F/g ,/G/g ,/H/g ,/I/g ,/J/g,

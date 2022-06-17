@@ -4,7 +4,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('delete')
 		.setDescription('刪除訊息')
-		.addIntegerOption((option) => option.setName('amount').setDescription('刪除訊息筆數')),
+		.addIntegerOption((option) => option.setName('amount').setDescription('刪除訊息筆數').setRequired(true)),
 	async execute(interaction) {
 		const amount = interaction.options.getInteger('amount');
 
