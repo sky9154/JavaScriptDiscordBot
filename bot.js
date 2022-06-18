@@ -32,25 +32,38 @@ client.on('interactionCreate', async (interaction) => {
             console.error(error);
             await interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
         }
-
     } else if (interaction.isSelectMenu()) {
-        const menuFunc = require('./src/comic');
+        let menu;
 
-        if (!menuFunc) return;
+        if (interaction.customId === 'comicMenu') {
+            menu = require('./src/comic/menu');
+        }
+
+        if (!menu) return;
 
         try {
-            await menuFunc.execute(interaction);
+            await menu.execute(interaction);
         } catch (error) {
             console.error(error);
             interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
         }
-    } else if (interaction.isButton()) {
-        const buttonFunc = require('./src/comic');
+    } else if (interaction.isModalSubmit()) {
+        let modal;
 
-        if (!buttonFunc) return;
+        const customId = [
+            'comicIdModel',
+            'comicKeywordModel',
+            'comicAuthorModel'
+        ];
+
+        if (customId.includes(interaction.customId)) {
+            modal = require('./src/comic/modal')
+        }
+
+        if (!modal) return;
 
         try {
-            await buttonFunc.execute(interaction);
+            await modal.execute(interaction);
         } catch (error) {
             console.error(error);
             interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
