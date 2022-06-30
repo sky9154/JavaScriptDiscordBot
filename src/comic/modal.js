@@ -45,7 +45,7 @@ module.exports = {
          * @param value 錯誤訊息
          * @returns {MessageEmbed} MessageEmbed
          */
-        const errrorEmbed = (value) => new MessageEmbed()
+        const errorEmbed = (value) => new MessageEmbed()
             .setTitle('錯誤!')
             .setDescription(value)
             .setColor('#f23857')
@@ -57,37 +57,29 @@ module.exports = {
 
         switch (customId) {
         case 'comicIdModel':
-            const id = value.replace(/-/g, '');
+            if (/^[0-9]*$/.test(value)) {
+                comic = await sHentai.getDoujin(value);
 
-            if (/^-?\d+$/.test(id)) {
-                comic = await sHentai.getDoujin(id);
+                const idEmbed = comic.status ? errorEmbed('看起來你要找的東西不在這裡!') : setComicEmbed(comic);
 
-                if (Object.keys(comic).includes('message')) {
-                    await interaction.update({ embeds: [errrorEmbed('看起來你要找的東西不在這裡!')], components: [] });
-                } else {
-                    await interaction.update({ embeds: [setComicEmbed(comic)], components: [] });
-                }
+                await interaction.update({ embeds: [idEmbed], components: [] });
             } else {
-                await interaction.update({ embeds: [errrorEmbed('請輸入純數字!')], components: [] });
+                await interaction.update({ embeds: [errorEmbed('請輸正整數!')], components: [] });
             }
             break;
         case 'comicKeywordModel':
             comic = await sHentai.search(value);
 
-            if (Object.keys(comic).includes('message')) {
-                await interaction.update({ embeds: [errrorEmbed('看起來你要找的東西不在這裡!')], components: [] });
-            } else {
-                await interaction.update({ embeds: setMoreComicEmbed(comic.results), components: [] });
-            }
+            const keyWordEmbed = comic.status ? errorEmbed('看起來你要找的東西不在這裡!') : setMoreComicEmbed(comic.results);
+
+            await interaction.update({ embeds: [keyWordEmbed], components: [] });
             break;
         case 'comicAuthorModel':
             comic = await sHentai.byAuthor(value);
 
-            if (Object.keys(comic).includes('message')) {
-                await interaction.update({ embeds: [errrorEmbed('看起來你要找的東西不在這裡!')], components: [] });
-            } else {
-                await interaction.update({ embeds: setMoreComicEmbed(comic.results), components: [] });
-            }
+            const authorEmbed = comic.status ? errorEmbed('看起來你要找的東西不在這裡!') : setMoreComicEmbed(comic.results);
+
+            await interaction.update({ embeds: [authorEmbed], components: [] });
             break;
         }
     }

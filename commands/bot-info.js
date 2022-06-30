@@ -30,15 +30,15 @@ module.exports = {
                     name: 'Bot Name',
                     value: `\`桐谷和人#6388\``
                 }, {
-                    name: 'DiscordJs Version',
+                    name: 'DiscordJS',
                     value: `\`v${version}\``,
                     inline: true
                 }, {
-                    name: 'NodeJs Version',
+                    name: 'NodeJS',
                     value: `\`${process.version.replace('^', 'v')}\``,
                     inline: true
                 }, {
-                    name: 'IDE Version',
+                    name: 'IDE',
                     value: `\`WebStorm 2022.1.2\``,
                     inline: true
                 }

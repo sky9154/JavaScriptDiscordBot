@@ -23,7 +23,7 @@ module.exports = {
                         .setDescription(`店名: ${file.replace('.png', '')}`)
                         .setColor('#ffcc80')
                         .setImage('attachment://name.png')
-                    await interaction.reply({embeds: [drinkEmbed], files: [attachment]});
+                    await interaction.reply({ embeds: [drinkEmbed], files: [attachment] });
                     return true;
                 }
             }
@@ -34,7 +34,7 @@ module.exports = {
                 .setTitle('手搖飲料菜單')
                 .setDescription('目前尚未有菜單!')
                 .setColor('#ff4444')
-            await interaction.reply({embeds: [drinkEmbed]});
+            await interaction.reply({ embeds: [drinkEmbed] });
         }
     }
 };
