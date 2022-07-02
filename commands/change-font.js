@@ -4,8 +4,8 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('change-font')
-        .setDescription('英文字體轉換器')
-        .addStringOption((option) => option.setName('word').setDescription('英文句子').setRequired(true)),
+        .setDescription('英語字體轉換器')
+        .addStringOption((option) => option.setName('text').setDescription('英語').setRequired(true)),
     async execute(interaction) {
         const originalArray = [
             /A/g ,/B/g ,/C/g ,/D/g ,/E/g ,/F/g ,/G/g ,/H/g ,/I/g ,/J/g,
@@ -25,8 +25,8 @@ module.exports = {
             '𝘂', '𝘃', '𝘄', '𝘅', '𝘆', '𝘇',
             '𝟬', '𝟭', '𝟮', '𝟯', '𝟰', '𝟱', '𝟲', '𝟳', '𝟴', '𝟵'
         ];
-        const original = interaction.options.getString('word');
-        const regex = original.replace(/[^a-zA-Z0-9 ~!@#$%^&*()_+-]/g, '-');
+        const original = interaction.options.getString('text');
+        const regex = original.replace(/[^\w ~!@#$%^&*()_+-]/g, '-');
         let result = regex;
 
         originalArray.forEach((item, index) => result = result.replace(item, newArray[index]));
