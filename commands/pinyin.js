@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const { pinyin } = require("pinyin-pro")
+const { pinyin } = require('pinyin-pro');
 
 module.exports = {
     data: new SlashCommandBuilder()
