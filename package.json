@@ -17,6 +17,8 @@
     "dayjs": "^1.11.3",
     "discord-api-types": "^0.33.3",
     "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1",
+    "is-image": "^3.0.0",
     "mongoose": "^6.3.6",
     "mysql": "^2.18.1",
     "pinyin-pro": "^3.10.1",
