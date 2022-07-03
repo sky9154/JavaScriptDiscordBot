@@ -1,16 +1,13 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { Comic } = require('../assets/permission.json');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('comic')
         .setDescription('漫畫搜尋器'),
     async execute(interaction) {
-        const user = [
-            '480780313778323456',
-            '471614640594354188'
-        ];
-        if (user.includes(interaction.user.id)) {
+        if (Comic.User.includes(interaction.user.id)) {
             const menu = new MessageActionRow()
                 .addComponents(
                     new MessageSelectMenu()

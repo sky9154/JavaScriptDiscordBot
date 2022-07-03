@@ -4,43 +4,38 @@ const sHentai = new nHentai;
 
 module.exports = {
     async execute(interaction) {
-        const user = [
-            '480780313778323456',
-            '471614640594354188'
-        ];
-        if (user.includes(interaction.user.id)) {
-            /**
-             * 設定 Embed 群組
-             * @param comic 漫畫資料
-             * @returns {MessageEmbed} MessageEmbed
-             */
-            const setMoreComicEmbed = (comic) => comic.map((item) => new MessageEmbed()
-                .setTitle(item.titles.english)
-                .setURL(`https://nhentai.net/g/${item.id}/`)
-                .setDescription(`#${item.id}`)
-                .setColor('#f23857')
-                .setThumbnail(item.cover)
-                .setFooter({text: 'Copyright © 2022 oF'}));
+        /**
+         * 設定 Embed 群組
+         * @param comic 漫畫資料
+         * @returns {MessageEmbed} MessageEmbed
+         */
+        const setMoreComicEmbed = (comic) => comic.map((item) => new MessageEmbed()
+            .setTitle(item.titles.english)
+            .setURL(`https://nhentai.net/g/${item.id}/`)
+            .setDescription(`#${item.id}`)
+            .setColor('#f23857')
+            .setThumbnail(item.cover)
+            .setFooter({text: 'Copyright © 2022 oF'}));
 
-            /**
-             * 設定 Embed
-             * @param comic 漫畫資料
-             * @returns {MessageEmbed} MessageEmbed
-             */
-            const setComicEmbed = (comic) => new MessageEmbed()
-                .setTitle(comic.titles.english)
-                .setURL(`https://nhentai.net/g/${comic.id}/`)
-                .setDescription(comic.titles.original)
-                .setColor('#f23857')
-                .addField('編號', `\`${comic.id}\``, true)
-                .addField('頁數', `\`${comic.pages.length}\``, true)
-                .setImage(comic.cover)
-                .setFooter({ text: 'Copyright © 2022 oF' });
+        /**
+         * 設定 Embed
+         * @param comic 漫畫資料
+         * @returns {MessageEmbed} MessageEmbed
+         */
+        const setComicEmbed = (comic) => new MessageEmbed()
+            .setTitle(comic.titles.english)
+            .setURL(`https://nhentai.net/g/${comic.id}/`)
+            .setDescription(comic.titles.original)
+            .setColor('#f23857')
+            .addField('編號', `\`${comic.id}\``, true)
+            .addField('頁數', `\`${comic.pages.length}\``, true)
+            .setImage(comic.cover)
+            .setFooter({ text: 'Copyright © 2022 oF' });
 
-            const menuValue = interaction.values[0];
-            let comic;
+        const menuValue = interaction.values[0];
+        let comic;
 
-            switch (menuValue) {
+        switch (menuValue) {
             case 'popular':
                 comic = await sHentai.getPopular();
                 await interaction.update({ embeds: setMoreComicEmbed(comic), components: [] });
@@ -89,9 +84,6 @@ module.exports = {
             default:
                 await interaction.update({ content: '當前模式尚未完成!', embeds: [], components: [] });
                 break;
-            }
-        } else {
-            await interaction.update({ content: '你沒有權限使用這個指令!', embeds: [], components: [] });
         }
     }
 };
