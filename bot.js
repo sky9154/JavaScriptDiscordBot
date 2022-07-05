@@ -48,10 +48,8 @@ client.on('interactionCreate', async (interaction) => {
     } else if (interaction.isButton()) {
         let button;
 
-        if (interaction.customId === 'police') {
-            button = require('./src/random-image/police');
-        } else if (interaction.customId === 'cat') {
-            button = require('./src/random-image/cat');
+        if (['police', 'cat'].includes(interaction.customId)) {
+            button = require('./src/random-image/button');
         }
 
         if (!button) return;

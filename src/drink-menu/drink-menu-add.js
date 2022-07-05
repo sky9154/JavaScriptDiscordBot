@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const isImage = require("is-image");
 const dayjs = require('dayjs');
 const mysql = require('mysql');
-const { DrinkMenu } = require('../assets/permission');
+const { DrinkMenu } = require('../../assets/permission.json');
 
 require('dotenv').config();
 
@@ -13,7 +13,7 @@ module.exports = {
         .setDescription('新增手搖飲料菜單')
         .addStringOption((option) => option.setName('name').setDescription('店名').setRequired(true))
         .addStringOption((option) => option.setName('menu').setDescription('菜單').setRequired(true)),
-    async execute(interaction) {
+    async execute (interaction) {
         if (DrinkMenu.Add.includes(interaction.user.id)) {
             const connection = mysql.createConnection({
                 host: process.env.DB_HOST,
