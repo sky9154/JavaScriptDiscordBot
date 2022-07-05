@@ -8,7 +8,7 @@ module.exports = {
         .setName('drink-menu')
         .setDescription('查詢手搖飲料菜單')
         .addStringOption((option) => option.setName('name').setDescription('店名').setRequired(true)),
-    async execute(interaction) {
+    async execute (interaction) {
         const connection = mysql.createConnection({
             host: process.env.DB_HOST,
             user: process.env.DB_USER,

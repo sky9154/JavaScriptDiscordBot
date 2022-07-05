@@ -3,7 +3,7 @@ const nHentai = require('shentai');
 const sHentai = new nHentai;
 
 module.exports = {
-    async execute(interaction) {
+    async execute (interaction) {
         /**
          * 設定 Embed 群組
          * @param comic 漫畫資料

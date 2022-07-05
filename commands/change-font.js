@@ -1,12 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed} = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('change-font')
         .setDescription('英語字體轉換器')
         .addStringOption((option) => option.setName('text').setDescription('英語').setRequired(true)),
-    async execute(interaction) {
+    async execute (interaction) {
         const originalArray = [
             /A/g ,/B/g ,/C/g ,/D/g ,/E/g ,/F/g ,/G/g ,/H/g ,/I/g ,/J/g,
             /K/g ,/L/g ,/M/g ,/N/g ,/O/g ,/P/g ,/Q/g ,/R/g ,/S/g ,/T/g,
@@ -25,15 +25,28 @@ module.exports = {
             '𝘂', '𝘃', '𝘄', '𝘅', '𝘆', '𝘇',
             '𝟬', '𝟭', '𝟮', '𝟯', '𝟰', '𝟱', '𝟲', '𝟳', '𝟴', '𝟵'
         ];
+
         const original = interaction.options.getString('text');
         const regex = original.replace(/[^\w ~!@#$%^&*()_+-]/g, '-');
-        let result = regex;
+        let resultUpperCase = regex.toUpperCase();
+        let resultLowerCase = regex.toLowerCase();
 
-        originalArray.forEach((item, index) => result = result.replace(item, newArray[index]));
+        originalArray.forEach((item, index) => resultUpperCase = resultUpperCase.replace(item, newArray[index]));
+        originalArray.forEach((item, index) => resultLowerCase = resultLowerCase.replace(item, newArray[index]));
 
         const changeFontEmbed = new MessageEmbed()
             .setTitle('英文字體轉換器')
-            .setDescription(`原始樣式：${original}\n去除不明文字：${regex}\n轉換結果：${result}`)
+            .addFields(
+                {
+                    name: '原始樣式',
+                    value: original
+                }, {
+                    name: '轉換結果 (大寫)',
+                    value: resultUpperCase
+                }, {
+                    name: '轉換結果 (小寫)',
+                    value: resultLowerCase
+                })
             .setColor('#5e9bbc')
             .setFooter({ text: 'Copyright © 2022 oF' });
 

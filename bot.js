@@ -1,7 +1,7 @@
 const { Client, Collection, Intents } = require('discord.js');
-
 const fs = require('node:fs');
 const path = require('node:path');
+const mysql = require('mysql');
 
 require('dotenv').config();
 
@@ -20,6 +20,17 @@ for (const file of commandFiles) {
 client.once('ready', () => {
     client.user.setActivity('Sword Art Online');
     console.log(`機器人 ${client.user.tag} 正在運行中!`);
+
+    const connection = mysql.createConnection({
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: 'discord-bot'
+    });
+
+    connection.connect();
+    connection.query('SELECT 1 + 1 AS solution', async (error) => console.log(`${error ? error : '資料庫連線成功!'}`));
+    connection.end();
 });
 
 client.on('interactionCreate', async (interaction) => {

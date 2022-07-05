@@ -7,7 +7,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('ayame')
         .setDescription('百鬼開台計時器'),
-    async execute(interaction) {
+    async execute (interaction) {
         /**
          * 計算百鬼距離上次開台經過時間
          * @param startDate 上次開台時間

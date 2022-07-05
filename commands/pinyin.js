@@ -7,7 +7,7 @@ module.exports = {
         .setName('pinyin')
         .setDescription('漢語轉拼音轉換器')
         .addStringOption((option) => option.setName('text').setDescription('漢語').setRequired(true)),
-    async execute(interaction) {
+    async execute (interaction) {
         const original = interaction.options.getString('text');
 
         const pinyinEmbed = new MessageEmbed()

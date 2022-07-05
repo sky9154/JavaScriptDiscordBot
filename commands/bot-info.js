@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('bot-info')
         .setDescription('關於機器人'),
-    async execute(interaction) {
+    async execute (interaction) {
         const linkButton = new MessageActionRow()
             .addComponents(
                 new MessageButton()

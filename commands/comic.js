@@ -6,7 +6,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('comic')
         .setDescription('漫畫搜尋器'),
-    async execute(interaction) {
+    async execute (interaction) {
         if (Comic.User.includes(interaction.user.id)) {
             const menu = new MessageActionRow()
                 .addComponents(

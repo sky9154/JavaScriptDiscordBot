@@ -5,7 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('random-image')
         .setDescription('隨機圖片'),
-    async execute(interaction) {
+    async execute (interaction) {
         const imageButton = new MessageActionRow()
             .addComponents(
                 new MessageButton()

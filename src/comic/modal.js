@@ -3,7 +3,7 @@ const nHentai = require('shentai');
 const sHentai = new nHentai;
 
 module.exports = {
-    async execute(interaction) {
+    async execute (interaction) {
         /**
          * 設定 Embed 群組
          * @param comic 漫畫資料
@@ -19,8 +19,7 @@ module.exports = {
                         .setDescription(`#${comic[i].id}`)
                         .setColor('#f23857')
                         .setThumbnail(comic[i].cover)
-                        .setFooter({text: 'Copyright © 2022 oF'})
-                );
+                        .setFooter({text: 'Copyright © 2022 oF'}));
             }
             return comicArr;
         }
