@@ -9,14 +9,10 @@ const commands = [];
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith('.js'));
 
-const COMIC_OPEN = false;
-
 for (const file of commandFiles) {
-    if (file === 'comic.js' && !COMIC_OPEN) {
-        continue;
-    }
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
+
     commands.push(command.data.toJSON());
 }
 

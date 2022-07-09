@@ -48,50 +48,10 @@ client.on('interactionCreate', async (interaction) => {
     } else if (interaction.isButton()) {
         let button;
 
-        if (['police', 'cat'].includes(interaction.customId)) {
-            button = require('./src/random-image/button');
-        }
-
         if (!button) return;
 
         try {
             await button.execute(interaction);
-        } catch (error) {
-            console.error(error);
-            interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
-        }
-    } else if (interaction.isSelectMenu()) {
-        let menu;
-
-        if (interaction.customId === 'comicMenu') {
-            menu = require('./src/comic/menu');
-        }
-
-        if (!menu) return;
-
-        try {
-            await menu.execute(interaction);
-        } catch (error) {
-            console.error(error);
-            interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
-        }
-    } else if (interaction.isModalSubmit()) {
-        let modal;
-
-        const customId = [
-            'comicIdModel',
-            'comicKeywordModel',
-            'comicAuthorModel'
-        ];
-
-        if (customId.includes(interaction.customId)) {
-            modal = require('./src/comic/modal');
-        }
-
-        if (!modal) return;
-
-        try {
-            await modal.execute(interaction);
         } catch (error) {
             console.error(error);
             interaction.reply({ content: '執行此命令時出錯!', ephemeral: true });
